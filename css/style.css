@@ -59,6 +59,12 @@ body {
 }
 
 /* add */
+.list-group:hover {
+	background: #9fa2b47c;
+	cursor: pointer;
+	border-left: 3px solid #dde2ff;
+	border-radius: 0px;
+}
 .active {
 	background: #9fa2b47c;
 	cursor: pointer;
@@ -67,9 +73,9 @@ body {
 }
 
 /* add */
-/* .list-group:hover .svg-wrapper svg {
+.list-group:hover .svg-wrapper svg {
 	fill: white;
-} */
+}
 
 #aside__text {
 	font-weight: 400;
@@ -80,13 +86,21 @@ body {
 }
 
 /* add */
-.aside__text {
+/* .aside__text {
+	color: white !important;
+} */
+.list-group:hover .aside__text {
 	color: white !important;
 }
 
 #aside-svg {
 	opacity: 0.4;
 	fill: #afb1c0 !important;
+}
+
+.list-group:hover #aside-svg {
+	fill: white !important;
+	opacity: 1 !important;
 }
 
 /* add */
@@ -98,6 +112,8 @@ body {
 	height: 1px;
 	border-bottom: 1px solid #dfe0eb6e;
 }
+
+/* main */
 
 .main {
 	margin-left: 255px;
