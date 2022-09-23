@@ -1,10 +1,14 @@
+// import the file which users.js
+import data from './users.js'
+
+
 // selectors
 let listGroup = $('.list-group')
 let svg = $('#aside-svg')
 let asideText = $('#aside__text')
 let tbody = $('#tbody')
-
-
+let sort = $('#sort')
+let filter = $('#filter')
 
 listGroup.forEach(el => {
   el.addEventListener('click', function (e) {
@@ -12,34 +16,19 @@ listGroup.forEach(el => {
   })
 });
 asideText.forEach(textEl => {
-  // el.addEventListener('click', function (e) {
-  // textEl.style.color = 'white'
   textEl.classList.toggle('aside__text')
-  // })
-  // console.log(svg.target);
 })
-// svg.forEach(svgEl => {
-//   // el.addEventListener('click', function (e) {
-//   svgEl.classList.toggle('opacity-40')
-//   // })
-// })
 
+// render(data)
 
-// let listGroupArr = listGroup.from('')
-// console.log(listGroupArr);
+function render(data) {
+  tbody.textConent = "5"
+  // console.log(tbody);
+  for (let i = 0; i < 10; i++) {
+    let tr = document.createElement('tr')
+    let priority = data[i].priority
 
-import data from './users.js'
-
-for (let i = 0; i < 100; i++) {
-  // data[1]
-
-  let tr = document.createElement('tr')
-  // console.log(data[i].ava);
-  let priority = data[i].priority.toUpperCase()
-
-
-
-  tr.innerHTML = `
+    tr.innerHTML = `
     <td class="ps-4">
       <div class="d-flex">
         <img class="rounded-circle" width=44 height=44 src="${data[i].ava}" alt="">
@@ -64,19 +53,101 @@ for (let i = 0; i < 100; i++) {
       <img class="line-height-img" src="./images/menu-settings.svg" alt="">
     </td>
   `
-  tbody[0].append(tr)
-  // color change btn
-  let color = $('.line-height')
-  // console.log(color);
-  if (priority == 'NORMAL') {
-    color[i].classList.add('normal')
-  } else if (priority == 'LOW') {
-    color[i].classList.add('low')
-  } else {
-    color[i].classList.add('high')
+
+    // APPEND
+    tbody[0].append(tr)
+
+    // CHANGE LISTGROUP BACKGROUND
+    let color = $('.line-height')
+    if (priority === 'normal') {
+      color[i].classList.add('normal')
+    } else if (priority === 'low') {
+      color[i].classList.add('low')
+    } else {
+      // if (color[i].hasAttribute('class', high)) {
+      color[i].classList.add('high')
+      // }
+    }
+    console.log(color[i]);
   }
-
-  // console.log(priority);
 }
+// render(data)
+// console.log(tbody);
 
 
+// function sort() {
+let sorted = [...data].sort((a, b) => a.name.localeCompare(b.name));
+// a.name < b.name
+// if (a.name > b.name) return 1;
+// else if (b.name > a.name) return -1;
+// return 0
+// })
+render(sorted)
+// }
+// sort()
+// tbody.innerHTML = ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if (a.name > b.name) return 1;
+// else if (b.name > a.name) return -1;
+// return 0
+
+// console.log(data2);
+
+// console.log(sort)
+// tasksArr.sort((a, b) => {
+// if (sortingType === "a-z") {
+// return a.task.toLowerCase() > b.task.toLowerCase();
+// } else if (sortingType === "time") {
+// return a.id > b.id;
+// } else {
+// return b.task.toLowerCase() > a.task.toLowerCase();
+// }
+// });
+
+
+// function tes(text) {
+  // if (text === "a-z") {
+    // data2.sort(function (a, b) {
+      // return a.name.localeCompare(b.name)
+    // })
+  // }
+// }
+// 
+// self.addEventListener("change", (evt) => {
+  // tes(evt.target.value)
+// })

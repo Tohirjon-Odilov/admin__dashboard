@@ -177,3 +177,8 @@ th {
 table span {
 	color: #c5c7cd !important;
 }
+
+#filter,
+#sort {
+	cursor: pointer;
+}
