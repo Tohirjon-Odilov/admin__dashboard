@@ -212,3 +212,7 @@ tr td:first-child img {
 tr td:last-child img {
 	padding: 13px;
 }
+
+#menu_settings {
+	cursor: pointer;
+}

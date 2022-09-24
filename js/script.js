@@ -79,6 +79,7 @@ function render(data) {
     td4.append(btn)
 
     edit.src = '../images/menu-settings.svg'
+    edit.setAttribute('id', 'menu_settings')
     td5.append(edit)
 
     //! main append
@@ -116,11 +117,27 @@ filter.addEventListener('change', (e) => {
     case "high":
       filtered = [...data].filter((el) => el.priority === "high");
       break
+    case "normal":
+      filtered = [...data].filter((el) => el.priority === "normal");
+      break
+    case 'low':
+      filtered = [...data].filter((el) => el.priority === "low")
+      break
+    default:
+      filtered = defaultt
+      break
   }
   render(filtered)
 })
 
-
+//! edit priority
+let editDot = body.querySelector('#menu_settings')
+function edited(editedData) {
+  editDot.addEventListener('click', (e) => {
+    console.log(e.target.value);
+  })
+}
+edited()
 
 
 
