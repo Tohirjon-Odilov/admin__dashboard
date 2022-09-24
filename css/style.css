@@ -161,10 +161,22 @@ body {
 }
 
 .low {
+	padding: 5px 14px;
 	background: #fec400;
+	border-radius: 100px;
+	color: white !important;
+	font-weight: 700;
+	font-size: 11px;
+	line-height: 50px;
 }
 
 .normal {
+	padding: 5px 14px;
+	border-radius: 100px;
+	color: white !important;
+	font-weight: 700;
+	font-size: 11px;
+	line-height: 50px;
 	background: #29cc97;
 }
 
@@ -178,7 +190,25 @@ table span {
 	color: #c5c7cd !important;
 }
 
-#filter,
+/* #filter,
 #sort {
 	cursor: pointer;
+} */
+
+#sort select,
+#filter select {
+	cursor: pointer;
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+}
+tr td:first-child img {
+	border-radius: 50%;
+	width: 44px;
+	height: 44px;
+}
+
+tr td:last-child img {
+	padding: 13px;
 }
