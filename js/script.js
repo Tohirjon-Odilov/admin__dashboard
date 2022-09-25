@@ -39,7 +39,7 @@ function render(data) {
   for (let el = 0; el < 10; el++) {
 
     //! created elements
-    const [row, td1, imgWrapper, img, textWrapper, title, online, td2, name, register, td3, online2, date, td4, btn, td5, edit] = createEl("tr", "td", "div", "img", "div", "strong", "span", "td", "strong", "span", "td", "strong", "span", "td", "span", "td", "img")
+    const [row, td1, imgWrapper, img, textWrapper, title, online, td2, name, register, td3, online2, date, td4, btn, td5, edit, editSelect, editOption1, editOption2, editOption3] = createEl("tr", "td", "div", "img", "div", "strong", "span", "td", "strong", "span", "td", "strong", "span", "td", "span", "td", "img", "div", "div", "div", "div")
 
     //! data concate to elements
     td1.className = 'ps-4'
@@ -78,14 +78,39 @@ function render(data) {
     }
     td4.append(btn)
 
+    td5.className = 'position-relative'
     edit.src = '../images/menu-settings.svg'
     edit.setAttribute('id', 'menu_settings')
-    td5.append(edit)
+    editSelect.setAttribute('id', 'edit')
+    editSelect.className = "form-select edit"
+    editOption1.textContent = 'high'
+    editOption1.setAttribute('class', 's1')
+    editOption2.textContent = 'normal'
+    editOption2.setAttribute('class', 's2')
+    editOption3.textContent = 'low'
+    editOption3.setAttribute('class', 's3')
+    edit.addEventListener(('click'), (e) => {
+      editSelect.classList.toggle('block')
+    })
+
+    // tbody.addEventListener(('click'), () => {
+    // editSelect.style.display = 'none'
+    // console.log('tbody');
+    // })
+
+
+    editSelect.append(editOption1, editOption2, editOption3)
+    td5.append(edit, editSelect)
 
     //! main append
     row.append(td1, td2, td3, td4, td5)
     tbody.appendChild(row)
   }
+  let s3 = body.querySelector(".s3")
+  s3.addEventListener(('click'), (e) => {
+
+    console.log(s3.textContent);
+  })
 }
 
 //! sorting data
@@ -131,13 +156,13 @@ filter.addEventListener('change', (e) => {
 })
 
 //! edit priority
-let editDot = body.querySelector('#menu_settings')
-function edited(editedData) {
-  editDot.addEventListener('click', (e) => {
-    console.log(e.target.value);
-  })
-}
-edited()
+// let editDot = body.querySelector('#menu_settings')
+// function edited(editedData) {
+//   editDot.addEventListener('click', (e) => {
+//     console.log(e.target.value);
+//   })
+// }
+// edited()
 
 
 

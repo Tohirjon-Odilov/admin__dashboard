@@ -216,3 +216,33 @@ tr td:last-child img {
 #menu_settings {
 	cursor: pointer;
 }
+
+.edit {
+	position: absolute;
+	padding: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 0;
+	width: 70px;
+	display: none;
+	z-index: 1;
+	top: -13px;
+	left: -45px;
+	background: #3a3a3a;
+	color: #fff;
+}
+
+.edit div {
+	padding: 0px 5px;
+	text-transform: capitalize;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.edit div:hover {
+	background: royalblue;
+}
+
+.block {
+	display: block;
+}
