@@ -93,10 +93,6 @@ function render(data) {
       editSelect.classList.toggle('block')
     })
 
-    // tbody.addEventListener(('click'), () => {
-    // editSelect.style.display = 'none'
-    // console.log('tbody');
-    // })
 
 
     editSelect.append(editOption1, editOption2, editOption3)
@@ -106,10 +102,9 @@ function render(data) {
     row.append(td1, td2, td3, td4, td5)
     tbody.appendChild(row)
   }
-  let s3 = body.querySelector(".s3")
-  s3.addEventListener(('click'), (e) => {
-
-    console.log(s3.textContent);
+  let edit = body.querySelector("#edit")
+  edit.addEventListener(('click'), (e) => {
+    console.log(e.target.textContent);
   })
 }
 
@@ -118,7 +113,6 @@ let sorted = null;
 let defaultt = data
 sort.addEventListener('change', function (e) {
   let sortValue = e.target.value
-  // console.log(sortValue);
   switch (sortValue) {
     case 'a-z':
       sorted = [...data].sort((a, b) => a.name.localeCompare(b.name));
@@ -137,7 +131,6 @@ sort.addEventListener('change', function (e) {
 let filtered = null
 filter.addEventListener('change', (e) => {
   let filterValue = e.target.value
-  // console.log(filterValue);
   switch (filterValue) {
     case "high":
       filtered = [...data].filter((el) => el.priority === "high");
@@ -154,15 +147,6 @@ filter.addEventListener('change', (e) => {
   }
   render(filtered)
 })
-
-//! edit priority
-// let editDot = body.querySelector('#menu_settings')
-// function edited(editedData) {
-//   editDot.addEventListener('click', (e) => {
-//     console.log(e.target.value);
-//   })
-// }
-// edited()
 
 
 
