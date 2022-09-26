@@ -39,7 +39,7 @@ function render(data) {
   for (let el = 0; el < 10; el++) {
 
     //! created elements
-    const [row, td1, imgWrapper, img, textWrapper, title, online, td2, name, register, td3, online2, date, td4, btn, td5, edit, editSelect, editOption1, editOption2, editOption3] = createEl("tr", "td", "div", "img", "div", "strong", "span", "td", "strong", "span", "td", "strong", "span", "td", "span", "td", "img", "div", "div", "div", "div")
+    const [row, td1, imgWrapper, img, textWrapper, title, online, td2, name, register, td3, online2, date, td4, btn, td5, edit, editSelect, editOption1, editOption2, editOption3, editOption4] = createEl("tr", "td", "div", "img", "div", "strong", "span", "td", "strong", "span", "td", "strong", "span", "td", "span", "td", "img", "div", "div", "div", "div", "div")
 
     //! data concate to elements
     td1.className = 'ps-4'
@@ -89,36 +89,72 @@ function render(data) {
     editOption2.setAttribute('class', 's2')
     editOption3.textContent = 'low'
     editOption3.setAttribute('class', 's3')
-    edit.addEventListener(('click'), (e) => {
+    editOption4.textContent = 'delete'
+    editOption4.className = 'btn btn-outline-danger'
+
+    edit.addEventListener('click', (e) => {
       editSelect.classList.toggle('block')
+      // console.log(e.target);
     })
 
+    editSelect.addEventListener(('click'), (e) => {
+      let dinamicBtn = e.target.textContent
+      editSelect.classList.remove('block')
+      // console.log(editSelect);
+      // console.log(e.target);
+      //! agar bu bo'lmasa editselect
+      if (e.target === editSelect) return;
+      // console.log(e.target);
+      if (data[el].priority = dinamicBtn) {
+        // console.log(data[el].priority = dinamicBtn);
+        btn.textContent = dinamicBtn
+      }
+      //! change btn color
+      switch (btn.textContent) {
+        case 'high':
+          btn.className = 'high'
+          break;
+        case 'normal':
+          btn.className = 'normal'
+          break;
+        default:
+          btn.className = 'low'
+          break;
+      }
+      if (dinamicBtn === 'delete') {
+        row.remove()
+      }
+    })
+    if (btn.textContent == 'delete') {
+      btn.textContent = 'normal'
+      btn.className = 'normal'
+    }
 
 
-    editSelect.append(editOption1, editOption2, editOption3)
+
+
+
+    editSelect.append(editOption1, editOption2, editOption3, editOption4)
     td5.append(edit, editSelect)
 
     //! main append
     row.append(td1, td2, td3, td4, td5)
     tbody.appendChild(row)
   }
-  let edit = body.querySelector("#edit")
-  edit.addEventListener(('click'), (e) => {
-    console.log(e.target.textContent);
-  })
+
 }
 
 //! sorting data
-let sorted = null;
+let sorted = [...data];
 let defaultt = data
 sort.addEventListener('change', function (e) {
   let sortValue = e.target.value
   switch (sortValue) {
     case 'a-z':
-      sorted = [...data].sort((a, b) => a.name.localeCompare(b.name));
+      sorted.sort((a, b) => a.name.localeCompare(b.name));
       break;
     case 'z-a':
-      sorted = [...data].sort((a, b) => b.name.localeCompare(a.name));
+      sorted.sort((a, b) => b.name.localeCompare(a.name));
       break
     default:
       sorted = defaultt
