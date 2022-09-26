@@ -90,7 +90,7 @@ function render(data) {
     editOption3.textContent = 'low'
     editOption3.setAttribute('class', 's3')
     editOption4.textContent = 'delete'
-    editOption4.className = 'btn btn-outline-danger'
+    editOption4.className = 'delete'
 
     edit.addEventListener('click', (e) => {
       editSelect.classList.toggle('block')
@@ -102,7 +102,7 @@ function render(data) {
       editSelect.classList.remove('block')
       // console.log(editSelect);
       // console.log(e.target);
-      //! agar bu bo'lmasa editselect
+      //! agar bu bo'lmasa editselect ichidagi barcha textlar chiqib qoladi va rangi sariq bo'ladi
       if (e.target === editSelect) return;
       // console.log(e.target);
       if (data[el].priority = dinamicBtn) {
@@ -130,10 +130,6 @@ function render(data) {
       btn.className = 'normal'
     }
 
-
-
-
-
     editSelect.append(editOption1, editOption2, editOption3, editOption4)
     td5.append(edit, editSelect)
 
@@ -141,20 +137,18 @@ function render(data) {
     row.append(td1, td2, td3, td4, td5)
     tbody.appendChild(row)
   }
-
 }
-
 //! sorting data
-let sorted = [...data];
+let sorted = null;
 let defaultt = data
 sort.addEventListener('change', function (e) {
   let sortValue = e.target.value
   switch (sortValue) {
     case 'a-z':
-      sorted.sort((a, b) => a.name.localeCompare(b.name));
+      sorted = [...data].sort((a, b) => a.name.localeCompare(b.name));
       break;
     case 'z-a':
-      sorted.sort((a, b) => b.name.localeCompare(a.name));
+      sorted = [...data].sort((a, b) => b.name.localeCompare(a.name));
       break
     default:
       sorted = defaultt
@@ -162,7 +156,6 @@ sort.addEventListener('change', function (e) {
   }
   render(sorted)
 })
-
 //! filtering data
 let filtered = null
 filter.addEventListener('change', (e) => {

@@ -239,10 +239,25 @@ tr td:last-child img {
 	cursor: pointer;
 }
 
-.edit div:hover {
-	background: royalblue;
+.s1:hover {
+	background: crimson;
+}
+.s2:hover {
+	background: #29cc97;
+}
+.s3:hover {
+	background: #fec400;
 }
 
 .block {
 	display: block;
 }
+
+.delete {
+	background-color: crimson;
+}
+
+/* .delete:hover {
+	background: #000 !important;
+	color: white !important;
+} */
